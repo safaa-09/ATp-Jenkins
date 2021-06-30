@@ -36,22 +36,6 @@ pipeline {
             }
         }
         
-          stage('Build Docker Image ') {
-            steps {
-     
-               sh 'docker build -t safaa09/avers1:01 .'
-           
-            }
-        }
-        
-          stage('Mettre L\'image sur Dockerhub ') {
-            steps {
-     withCredentials([string(credentialsId: 'dockerhubpass', variable: 'dockerhubp1')]) {
-       sh "docker login -u safaa09 -p ${dockerhubp1}"
-    }
-               sh 'docker build -t safaa09/avers1:01 .'
-           
-            }
-        }
+          
     }
 }
