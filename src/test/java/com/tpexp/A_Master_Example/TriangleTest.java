@@ -17,7 +17,7 @@ public class TriangleTest {
 
 	
 	@Test
-	public void Test2() {assertEquals("Isocèle", triangle1.TriangleType(5, 5, 4)
+	public void Test2() {assertEquals("Scalene", triangle1.TriangleType(5, 5, 4)
 					);
 	}
 
