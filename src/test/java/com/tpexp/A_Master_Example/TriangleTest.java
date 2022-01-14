@@ -26,7 +26,7 @@ public class TriangleTest {
 			assertEquals("Equilateral", triangle1.TriangleType(7, 7, 7)
 					);
 	} 
-
+//test junit
 	@Test
 	public void Test5() {
 		assertEquals("Scalene", triangle1.TriangleType(5, 7,4 )
