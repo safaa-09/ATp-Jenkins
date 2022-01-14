@@ -29,7 +29,7 @@ public class TriangleTest {
 
 	@Test
 	public void Test5() {
-		assertEquals("Scalene", triangle1.TriangleType(5, 7,7 )
+		assertEquals("Scalene", triangle1.TriangleType(5, 7,4 )
 				);
 	 }
 
