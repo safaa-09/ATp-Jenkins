@@ -35,9 +35,9 @@ public class TriangleTest {
 
 
 
-	/*@Test
+	@Test
 	/void Test7() {
 			assertEquals("Equilateral", triangle1.TriangleType(10.5, 6.7, 7.1)
 					);
-	} */
+	} 
 }
