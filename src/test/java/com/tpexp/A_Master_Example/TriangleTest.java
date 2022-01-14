@@ -32,11 +32,11 @@ public class TriangleTest {
 		assertEquals("Scalene", triangle1.TriangleType(5, 7, 3)
 				);
 	 }
-
+ample/TriangleTest.java:[39,10] ';' expected
 
 
 	@Test
-	/void Test7() {
+	void Test7() {
 			assertEquals("Equilateral", triangle1.TriangleType(10.5, 6.7, 7.1)
 					);
 	} 
