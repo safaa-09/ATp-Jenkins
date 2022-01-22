@@ -1,41 +1,51 @@
 pipeline {
     agent any
- 
- tools{
-     maven 'apache-maven-3.6.0'
- }
 
     stages {
-        stage('Git Checkout') {
+        stage('vérification github') {
             steps {
-               git credentialsId: 'git_credentials', url: 'https://github.com/safaa-09/ATp-Jenkins.git'
+                // Get some code from a GitHub repository
+              git credentialsId: 'git_credentials', url: 'https://github.com/safaa-09/ATp-Jenkins.git'
+
+                
+            }
+        }
+         stage('Build du projet') {
+            steps {
+                // Get some code from a GitHub repository
+             sh 'mvn compile'
             }
         }
         
-        stage('build Maven') {
+        stage('test du projet') {
             steps {
-               sh 'mvn compile'
+                // Get some code from a GitHub repository
+             sh 'mvn test'
             }
         }
         
-        
-        
-          stage('Test Unitaire') {
+        stage('package du projet') {
             steps {
-         
-               sh 'mvn clean test'
-            
+                // Get some code from a GitHub repository
+             sh 'mvn package'
             }
         }
         
-          stage('App Package') {
+        stage('Construction de l\'image') {
             steps {
-     
-               sh 'mvn clean package'
-           
+                // Get some code from a GitHub repository
+             sh 'docker build --tag safaa09/app1:01 .'
             }
         }
         
-          
+         stage('Push de l\'image'){
+             steps{
+               withCredentials([string(credentialsId: 'dockerhubpass', variable: 'dockerhubpwd')]) {
+
+                  sh "docker login -u safaa09 -p $dockerhubpwd"       
+               }
+          sh 'docker push safaa09/app1:01 '
+             }
+         }
     }
 }
